@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/activity_two_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradientboth"
+        android:keepScreenOn="true"
+
+        tools:context="tech.fluff.mtgcounter.TwoPlayer">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerInParent="true"
+            android:background="#ccc" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:onClick="goHome"
+            android:src="@drawable/mtgcounterbig" />
+
+        <TextView
+            android:id="@+id/rollDice"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/dice"
+            android:elevation="6dp"
+            android:gravity="center"
+            android:onClick="rollDice"
+            android:text="20"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical"
+            android:rotation="180">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="8">
+
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/addLife"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/plusbutton"
+                        android:elevation="6dp"
+                        android:gravity="center"
+                        android:onClick="addLife"
+                        android:text="1"
+                        android:textColor="@color/healthButton"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:translationZ="6dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lifeContainer"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="4"
+                    android:forceHasOverlappingRendering="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lifeText"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:forceHasOverlappingRendering="true"
+                        android:gravity="center"
+                        android:text="20"
+                        android:textColor="#000"
+                        android:textSize="80sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/minusLife"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/minusbutton"
+                        android:elevation="6dp"
+                        android:gravity="center"
+                        android:onClick="minusLife"
+                        android:text="1"
+                        android:textColor="@color/healthButton"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:translationZ="6dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:background="#ccc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="20dp"
+                android:orientation="horizontal"
+
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/add3Life"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/plusbutton"
+                        android:elevation="6dp"
+                        android:gravity="center"
+                        android:onClick="add3Life"
+                        android:text="2"
+                        android:textColor="@color/healthButton"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:translationZ="6dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/addEnergy"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/plusbutton"
+                        android:elevation="6dp"
+                        android:gravity="center"
+                        android:onClick="addEnergy"
+                        android:text="5"
+                        android:textColor="@color/healthButton"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:translationZ="6dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/stormContainer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/minus3Life"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/minusbutton"
+                        android:elevation="6dp"
+                        android:gravity="center"
+                        android:onClick="minus3Life"
+                        android:text="2"
+                        android:textColor="@color/healthButton"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:translationZ="6dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/energyContainer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/minusEnergy"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/minusbutton"
+                        android:elevation="6dp"
+                        android:gravity="center"
+                        android:onClick="minusEnergy"
+                        android:text="5"
+                        android:textColor="@color/healthButton"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:translationZ="6dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="8">
+
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/addLife2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/plusbutton"
+                        android:elevation="6dp"
+                        android:gravity="center"
+                        android:onClick="addLife2"
+                        android:text="1"
+                        android:textColor="@color/healthButton"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:translationZ="6dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lifeContainer2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="4"
+                    android:forceHasOverlappingRendering="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lifeText2"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:forceHasOverlappingRendering="true"
+                        android:gravity="center"
+                        android:text="20"
+                        android:textColor="#000"
+                        android:textSize="80sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/minusLife2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/minusbutton"
+                        android:elevation="6dp"
+                        android:gravity="center"
+                        android:onClick="minusLife2"
+                        android:text="1"
+                        android:textColor="@color/healthButton"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:translationZ="6dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:background="#ccc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="20dp"
+                android:orientation="horizontal"
+
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/add3Life2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/plusbutton"
+                        android:elevation="6dp"
+                        android:gravity="center"
+                        android:onClick="add3Life2"
+                        android:text="2"
+                        android:textColor="@color/healthButton"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:translationZ="6dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/addEnergy2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/plusbutton"
+                        android:elevation="6dp"
+                        android:gravity="center"
+                        android:onClick="addEnergy2"
+                        android:text="5"
+                        android:textColor="@color/healthButton"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:translationZ="6dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/stormContainer2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/minus3Life2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/minusbutton"
+                        android:elevation="6dp"
+                        android:gravity="center"
+                        android:onClick="minus3Life2"
+                        android:text="2"
+                        android:textColor="@color/healthButton"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:translationZ="6dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/energyContainer2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/minusEnergy2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/minusbutton"
+                        android:elevation="6dp"
+                        android:gravity="center"
+                        android:onClick="minusEnergy2"
+                        android:text="5"
+                        android:textColor="@color/healthButton"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:translationZ="6dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

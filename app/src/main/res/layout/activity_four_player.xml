@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/activity_four_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true"
+        tools:context="tech.fluff.mtgcounter.TwoPlayer">
+
+        <View
+            android:id="@+id/horLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerInParent="true"
+            android:background="#ccc" />
+
+        <View
+            android:id="@+id/certLine"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="#ccc" />
+
+        <TextView
+            android:id="@+id/rollDice"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/dice"
+            android:gravity="center"
+            android:onClick="rollDice"
+            android:text="20"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <fragment
+                android:id="@+id/playerOne"
+                android:name="tech.fluff.mtgcounter.PlayerFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:layout="@layout/fragment_player">
+
+            </fragment>
+
+            <fragment
+                android:id="@+id/playerTwo"
+                android:name="tech.fluff.mtgcounter.PlayerFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:layout="@layout/fragment_player">
+
+            </fragment>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <fragment
+                android:id="@+id/playerThree"
+                android:name="tech.fluff.mtgcounter.PlayerFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:layout="@layout/fragment_player">
+
+            </fragment>
+
+            <fragment
+                android:id="@+id/playerFour"
+                android:name="tech.fluff.mtgcounter.PlayerFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:layout="@layout/fragment_player">
+
+            </fragment>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

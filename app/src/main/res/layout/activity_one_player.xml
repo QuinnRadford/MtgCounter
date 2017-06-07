@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/activity_two_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true"
+        tools:context="tech.fluff.mtgcounter.TwoPlayer">
+
+        <View
+            android:id="@+id/centerView"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_centerInParent="true" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/centerView"
+            android:background="@drawable/gradient" />
+
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="goHome"
+            android:src="@drawable/mtgcounterbig" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/colorPrimary"
+            android:gravity="center"
+            android:onClick="seeRules"
+            android:text="Rulings"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/rollDice"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="15dp"
+            android:background="@drawable/dice"
+            android:gravity="center"
+            android:onClick="rollDice"
+            android:text="20"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/firstPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/lifeButtons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/lifeText"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="20"
+                            android:textColor="#000"
+                            android:textSize="80sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
+
+                        <LinearLayout
+                            android:id="@+id/energyContainer"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/energyText"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/plusbutton"
+                                android:gravity="center"
+                                android:onClick="addEnergy"
+                                android:text="5"
+                                android:textColor="@color/healthButton"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/minusEnergy"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/minusbutton"
+                                android:gravity="center"
+                                android:onClick="minusEnergy"
+                                android:text="5"
+                                android:textColor="@color/healthButton"
+                                android:textSize="28sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/add3Life"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/plusbutton"
+                                android:gravity="center"
+                                android:onClick="add3Life"
+                                android:text="3"
+                                android:textColor="@color/healthButton"
+                                android:textSize="28sp"
+
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/minus3Life"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/minusbutton"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:onClick="minus3Life"
+                                android:text="3"
+                                android:textColor="@color/healthButton"
+                                android:textSize="28sp"
+                                android:textStyle="bold"
+                                android:translationZ="6dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/add2Life"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/plusbutton"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:onClick="add2Life"
+                                android:text="2"
+                                android:textColor="@color/healthButton"
+                                android:textSize="28sp"
+                                android:textStyle="bold"
+
+                                android:translationZ="6dp" />
+
+                            <Button
+                                android:id="@+id/minus2Life"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/minusbutton"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:onClick="minus2Life"
+                                android:text="2"
+                                android:textColor="@color/healthButton"
+                                android:textSize="28sp"
+                                android:textStyle="bold"
+                                android:translationZ="6dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/stormContainer"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/addLife"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/plusbutton"
+                                android:gravity="center"
+                                android:onClick="addLife"
+                                android:text="1"
+                                android:textColor="@color/healthButton"
+                                android:textSize="28sp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/minusLife"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/minusbutton"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:onClick="minusLife"
+                                android:text="1"
+                                android:textColor="@color/healthButton"
+                                android:textSize="28sp"
+                                android:textStyle="bold"
+                                android:translationZ="6dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+
+                    android:layout_margin="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@id/view"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/plusCounter1"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/plus"
+                            android:backgroundTint="#ff0011"
+                            android:backgroundTintMode="multiply"
+                            android:gravity="center"
+                            android:onClick="plusCounter1"
+                            android:text="0"
+                            android:textColor="#4d1e1c"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/minusCounter1"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/minus"
+                            android:backgroundTint="#ff0011"
+                            android:backgroundTintMode="multiply"
+                            android:gravity="center"
+                            android:onClick="minusCounter1"
+                            android:text="-"
+                            android:textSize="30dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/plusCounter2"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/plus"
+                            android:backgroundTint="#ff6f00"
+                            android:backgroundTintMode="multiply"
+                            android:gravity="center"
+                            android:onClick="plusCounter2"
+                            android:text="0"
+                            android:textColor="#434d1c"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/minusCounter2"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/minus"
+                            android:backgroundTint="#ff6f00"
+                            android:backgroundTintMode="multiply"
+                            android:gravity="center"
+                            android:onClick="minusCounter2"
+                            android:text="-"
+                            android:textSize="30dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/poisonContainer2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/plusCounter3"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/plus"
+                            android:backgroundTint="#38ca28"
+                            android:backgroundTintMode="multiply"
+                            android:gravity="center"
+                            android:onClick="plusCounter3"
+                            android:text="0"
+                            android:textColor="#2b4d1c"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/minusCounter3"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/minus"
+                            android:backgroundTint="#38ca28"
+                            android:backgroundTintMode="multiply"
+                            android:gravity="center"
+                            android:onClick="minusCounter3"
+                            android:text="-"
+                            android:textSize="30dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/poisonText"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/plus"
+                            android:backgroundTint="@color/colorAccent"
+                            android:backgroundTintMode="multiply"
+                            android:gravity="center"
+                            android:onClick="addPoison"
+                            android:text="0"
+                            android:textColor="#552363"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/minusPoison"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/minus"
+                            android:backgroundTint="@color/colorAccent"
+                            android:backgroundTintMode="multiply"
+                            android:gravity="center"
+                            android:onClick="minusPoison"
+                            android:text="-"
+                            android:textSize="30dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lifeContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.01"
+                        android:gravity="center"
+                        android:text=" "
+                        android:textColor="#000"
+                        android:textSize="60sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

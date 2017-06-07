@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="tech.fluff.mtgcounter">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".TwoPlayer" />
+        <activity android:name=".ThreePlayer" />
+        <activity android:name=".FourPlayer" />
+        <activity android:name=".LifeTotal" />
+        <activity android:name=".OnePlayer" />
+        <activity android:name=".StartActivity" />
+        <activity android:name=".TwoPlayerReversed" />
+        <activity android:name=".CardsAndRulings" />
+
+    </application>
+
+</manifest>

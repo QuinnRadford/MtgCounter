@@ -1,0 +1,160 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    tools:context="tech.fluff.mtgcounter.PlayerFragment">
+
+    <LinearLayout
+        android:id="@+id/baseLinear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:id="@+id/lifeContainer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@id/lifeText"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/life"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="20dp"
+                    android:text="20"
+                    android:textColor="#000"
+                    android:textSize="35sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/energyContainer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/energyText"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/plus"
+                    android:backgroundTint="@color/colorAccent"
+                    android:backgroundTintMode="multiply"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#3b267b"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/minusEnergy"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/minus"
+                    android:backgroundTint="@color/colorAccent"
+                    android:backgroundTintMode="multiply"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="#3b267b" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:id="@+id/stormContainer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/plusFive"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/plus"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textColor="#4082ab"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/minusFive"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/minus"
+                    android:gravity="center"
+
+                    android:text="5"
+                    android:textColor="#4082ab"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/poisonContainer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/plusLife"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/plus"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="#4082ab"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/minusLife"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/minus"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="#4082ab"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
