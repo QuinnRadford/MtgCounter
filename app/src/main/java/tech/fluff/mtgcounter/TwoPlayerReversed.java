@@ -6,6 +6,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -39,6 +42,42 @@ public class TwoPlayerReversed extends AppCompatActivity {
             lifeText.setText(LifeTotal);
             TextView lifeText2 = (TextView) findViewById(R.id.lifeText2);
             lifeText2.setText(LifeTotal);
+        }
+
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_options, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.rulings:
+                startActivity(new Intent(this, CardsAndRulings.class));
+                return true;
+            case R.id.reset:
+                refreshLayout();
+                return true;
+            case R.id.home:
+                new AlertDialog.Builder(this)
+                        .setTitle("Exit Game")
+                        .setMessage("Do you really want to exit?")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
     }

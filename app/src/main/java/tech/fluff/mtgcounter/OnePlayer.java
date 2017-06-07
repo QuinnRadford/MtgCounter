@@ -7,6 +7,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -45,6 +48,41 @@ public class OnePlayer extends AppCompatActivity {
 
     }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_options, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.rulings:
+                startActivity(new Intent(this, CardsAndRulings.class));
+                return true;
+            case R.id.reset:
+                refreshLayout();
+                return true;
+            case R.id.home:
+                new AlertDialog.Builder(this)
+                        .setTitle("Exit Game")
+                        .setMessage("Do you really want to exit?")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
     public void refreshLayout() {
         new AlertDialog.Builder(this)
                 .setTitle("Reset Counters")
@@ -65,22 +103,7 @@ public class OnePlayer extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goHome(View view) {
-        ButtonPress.vibe(getBaseContext(), vibelength);
-        new AlertDialog.Builder(this)
-                .setTitle("Exit Game")
-                .setMessage("Do you really want to exit?")
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                        startActivity(intent);
-                    }
-                })
-                .setNegativeButton(android.R.string.no, null).show();
-
-    }
 
     public void rollDice(View view) {
         TextView rollText = (TextView) view.getRootView().findViewById(R.id.rollDice);
@@ -100,6 +123,20 @@ public class OnePlayer extends AppCompatActivity {
         TextView lifeText = (TextView) view.getRootView().findViewById(R.id.lifeText);
         String lifeValue = lifeText.getText().toString();
         lifeText.setText(String.valueOf(Integer.valueOf(lifeValue) - 1));
+        ButtonPress.vibe(getBaseContext(), vibelength);
+    }
+
+    public void addLife10(View view) {
+        TextView lifeText = (TextView) view.getRootView().findViewById(R.id.lifeText);
+        String lifeValue = lifeText.getText().toString();
+        lifeText.setText(String.valueOf(Integer.valueOf(lifeValue) + 10));
+        ButtonPress.vibe(getBaseContext(), vibelength);
+    }
+
+    public void minusLife10(View view) {
+        TextView lifeText = (TextView) view.getRootView().findViewById(R.id.lifeText);
+        String lifeValue = lifeText.getText().toString();
+        lifeText.setText(String.valueOf(Integer.valueOf(lifeValue) - 10));
         ButtonPress.vibe(getBaseContext(), vibelength);
     }
 

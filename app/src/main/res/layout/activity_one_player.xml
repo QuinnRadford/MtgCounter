@@ -18,51 +18,6 @@
             android:layout_height="1px"
             android:layout_centerInParent="true" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/centerView"
-            android:background="@drawable/gradient" />
-
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:onClick="goHome"
-            android:src="@drawable/mtgcounterbig" />
-
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/circle"
-            android:backgroundTint="@color/colorPrimary"
-            android:gravity="center"
-            android:onClick="seeRules"
-            android:text="Rulings"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/rollDice"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_margin="15dp"
-            android:background="@drawable/dice"
-            android:gravity="center"
-            android:onClick="rollDice"
-            android:text="20"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -74,9 +29,6 @@
                 android:id="@+id/firstPlayer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -87,31 +39,105 @@
                     android:layout_marginBottom="15dp"
                     android:orientation="vertical">
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:id="@+id/addLife"
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:alpha="0.3"
+                                android:gravity="center"
+                                android:onClick="addLife"
+                                android:text="+"
+                                android:textColor="#000"
+                                android:textSize="80sp" />
+
+                            <TextView
+                                android:id="@+id/minusLife"
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:alpha="0.3"
+                                android:gravity="center"
+                                android:onClick="minusLife"
+                                android:text="-"
+                                android:textColor="#000"
+                                android:textSize="80sp" />
+                        </LinearLayout>
+
 
                         <TextView
                             android:id="@+id/lifeText"
                             android:layout_width="match_parent"
-                            android:layout_height="100dp"
+                            android:layout_height="120dp"
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:text="20"
                             android:textColor="#000"
                             android:textSize="80sp" />
 
-                    </LinearLayout>
+                    </RelativeLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
+
                         android:orientation="horizontal"
                         android:weightSum="4">
+
+                        <LinearLayout
+                            android:id="@+id/stormContainer"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/addLife10"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/plusbutton"
+                                android:gravity="center"
+                                android:onClick="addLife10"
+
+                                android:text="10"
+                                android:textColor="@color/healthButton"
+                                android:textSize="28sp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/minusLife10"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/minusbutton"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:onClick="minusLife10"
+
+                                android:text="10"
+                                android:textColor="@color/healthButton"
+                                android:textSize="28sp"
+                                android:textStyle="bold"
+                                android:translationZ="6dp" />
+
+                        </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/energyContainer"
@@ -227,63 +253,21 @@
 
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:id="@+id/stormContainer"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
 
-                            <Button
-                                android:id="@+id/addLife"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_gravity="center"
-                                android:layout_marginBottom="10dp"
-                                android:background="@drawable/plusbutton"
-                                android:gravity="center"
-                                android:onClick="addLife"
-                                android:text="1"
-                                android:textColor="@color/healthButton"
-                                android:textSize="28sp"
-                                android:textStyle="bold" />
-
-                            <Button
-                                android:id="@+id/minusLife"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/minusbutton"
-                                android:elevation="6dp"
-                                android:gravity="center"
-                                android:onClick="minusLife"
-                                android:text="1"
-                                android:textColor="@color/healthButton"
-                                android:textSize="28sp"
-                                android:textStyle="bold"
-                                android:translationZ="6dp" />
-
-                        </LinearLayout>
 
                     </LinearLayout>
                 </LinearLayout>
 
-                <View
-                    android:id="@+id/view"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-
-                    android:layout_margin="10dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_below="@id/view"
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="15dp"
-                android:orientation="vertical">
+                android:background="@drawable/gradient"
+                android:orientation="vertical"
+                android:paddingTop="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"

@@ -13,13 +13,11 @@ import java.util.Random;
 
 
 public class PlayerFragment extends Fragment implements View.OnClickListener {
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private int life = 20;
@@ -39,7 +37,7 @@ public class PlayerFragment extends Fragment implements View.OnClickListener {
      * @param param2 Parameter 2.
      * @return A new instance of fragment PlayerFragment.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static PlayerFragment newInstance(String param1, String param2) {
         PlayerFragment fragment = new PlayerFragment();
         Bundle args = new Bundle();

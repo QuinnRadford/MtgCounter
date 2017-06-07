@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/rulings"
+        android:title="@string/card_rulings" />
+    <item
+        android:id="@+id/reset"
+        android:title="@string/reset_game" />
+    <item
+        android:id="@+id/home"
+        android:title="@string/exit_game" />
+</menu>
