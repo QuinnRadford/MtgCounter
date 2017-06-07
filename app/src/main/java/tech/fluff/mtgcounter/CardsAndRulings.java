@@ -3,9 +3,12 @@ package tech.fluff.mtgcounter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.database.SQLException;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -37,11 +40,8 @@ public class CardsAndRulings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
-        String firstrun = sharedPref.getString("firstrun", "missing");
         DataBaseLoader myDbHelper = new DataBaseLoader(getApplicationContext());
-        Log.v("First Run? ", firstrun);
-        if (firstrun.equals("missing")) {
+        if (checkFirstLaunch()) {
             boolean success = true;
             try {
 
@@ -51,12 +51,6 @@ public class CardsAndRulings extends AppCompatActivity {
                 success = false;
                 throw new Error("Unable to create database");
 
-            } finally {
-                if (success) {
-                    SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString("firstrun", "false");
-                    editor.apply();
-                }
             }
         }
         try {
@@ -90,7 +84,27 @@ public class CardsAndRulings extends AppCompatActivity {
             }
         });
 
+    }
 
+    public boolean checkFirstLaunch() {
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        int currentVersion = 0;
+        try {
+            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            currentVersion = pInfo.versionCode;
+        } catch (final PackageManager.NameNotFoundException e) {
+        }
+
+        final int lastVersion = prefs.getInt("lastVersion", -1);
+        if (currentVersion > lastVersion) {
+
+            prefs.edit().putInt("lastVersion", currentVersion).apply();
+            Log.v("UPDATE STATUS: ", "NEW");
+            return true;
+        } else {
+            Log.v("UPDATE STATUS: ", "OLD");
+            return false;
+        }
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

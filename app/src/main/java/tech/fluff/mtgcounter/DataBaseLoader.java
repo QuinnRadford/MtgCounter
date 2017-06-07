@@ -43,7 +43,6 @@ public class DataBaseLoader extends SQLiteOpenHelper {
      * Creates a empty database on the system and rewrites it with your own database.
      */
     public void createDataBase() throws IOException {
-
         //boolean dbExist = checkDataBase();
         boolean dbExist = false;
         if (dbExist) {
@@ -154,6 +153,19 @@ public class DataBaseLoader extends SQLiteOpenHelper {
 
     }
 
+    public void forcedUpgrade() {
+        this.getReadableDatabase();
+
+        try {
+
+            copyDataBase();
+
+        } catch (IOException e) {
+            Log.v("Database ", "can't copy database");
+            throw new Error("Error copying database");
+
+        }
+    }
     public Card queryCard(String name) {
         String table = "cards";
         String[] columns = {"cardtext", "cardtype", "cardid"};
