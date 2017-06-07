@@ -4,6 +4,9 @@
         android:id="@+id/rulings"
         android:title="@string/card_rulings" />
     <item
+        android:id="@+id/log"
+        android:title="@string/life_log" />
+    <item
         android:id="@+id/reset"
         android:title="@string/reset_game" />
     <item

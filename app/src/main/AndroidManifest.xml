@@ -24,6 +24,7 @@
         <activity android:name=".StartActivity" />
         <activity android:name=".TwoPlayerReversed" />
         <activity android:name=".CardsAndRulings" />
+        <activity android:name=".LifeLog" />
 
     </application>
 

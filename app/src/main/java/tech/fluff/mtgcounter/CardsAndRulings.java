@@ -261,7 +261,6 @@ public class CardsAndRulings extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        DataBaseLoader myDbHelper = new DataBaseLoader(getApplicationContext());
         myDbHelper.close();
     }
 }

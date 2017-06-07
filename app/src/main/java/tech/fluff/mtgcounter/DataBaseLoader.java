@@ -1,5 +1,6 @@
 package tech.fluff.mtgcounter;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -129,7 +130,7 @@ public class DataBaseLoader extends SQLiteOpenHelper {
 
         //Open the database
         String myPath = DB_PATH + DB_NAME;
-        myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+        myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
 
     }
 
@@ -187,6 +188,25 @@ public class DataBaseLoader extends SQLiteOpenHelper {
         return returnCard;
     }
 
+    public String[] listLife(int gameID) {
+        Cursor cursor = myDataBase.query("life", new String[]{"action"}, "gameID = " + gameID, null, null, null, null);
+        List<String> result = new ArrayList<String>();
+        int COL_NAME = cursor.getColumnIndex("action");
+        Log.v("Queried Rows ", Integer.toString(cursor.getCount()));
+        while (cursor.moveToNext()) {
+            result.add(cursor.getString(COL_NAME));
+        }
+        return result.toArray(new String[result.size()]);
+    }
+
+    public long addLife(int action, int gameID) {
+        ContentValues values = new ContentValues();
+        values.put("gameID", gameID);
+        values.put("action", action);
+        long newRowId = myDataBase.insert("life", null, values);
+        return newRowId;
+    }
+
     private ArrayList<Map<String, String>> queryRules(String id) {
         String table = "rulings";
         String[] columns = {"ruledate", "ruletext"};
@@ -216,8 +236,6 @@ public class DataBaseLoader extends SQLiteOpenHelper {
         }
         return result.toArray(new String[result.size()]);
     }
-    // Add your public helper methods to access and get content from the database.
-    // You could return cursors by doing "return myDataBase.query(....)" so it'd be easy
-    // to you to create adapters for your views.
+
 
 }

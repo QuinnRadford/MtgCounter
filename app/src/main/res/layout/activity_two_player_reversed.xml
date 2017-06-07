@@ -242,7 +242,7 @@
                         android:layout_weight="1"
                         android:alpha="0.3"
                         android:gravity="center"
-                        android:onClick="addLife"
+                        android:onClick="addLife2"
                         android:text="+"
                         android:textColor="#000"
                         android:textSize="80sp" />
@@ -254,7 +254,7 @@
                         android:layout_weight="1"
                         android:alpha="0.3"
                         android:gravity="center"
-                        android:onClick="minusLife"
+                        android:onClick="minusLife2"
                         android:text="-"
                         android:textColor="#000"
                         android:textSize="80sp" />

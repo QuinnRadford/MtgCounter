@@ -7,8 +7,8 @@ android {
         applicationId "tech.fluff.mtgcounter"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 9
-        versionName "2.20"
+        versionCode 10
+        versionName "2.30"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

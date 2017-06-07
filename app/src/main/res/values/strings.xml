@@ -26,4 +26,7 @@
     <string name="card_rulings">Card Rulings</string>
     <string name="reset_game">Reset Game</string>
     <string name="exit_game">End Game</string>
+    <string name="player_2">Player 2 (bottom)</string>
+    <string name="player_1">Player 1 (top)</string>
+    <string name="life_log">Life Log</string>
 </resources>
